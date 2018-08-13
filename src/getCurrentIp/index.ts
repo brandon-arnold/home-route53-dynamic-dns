@@ -16,8 +16,7 @@ export default async function getCurrentIp() {
     try {
       body = await fetchResponse.json();
     } catch (error) { }
-    const errorText =
-      'Failed to send current batch of EnertiaContacts to Landdox';
+    const errorText = 'Something went wrong acquiring the current IP address';
     console.error(body);
     throw new Error(errorText);
   }
