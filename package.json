@@ -1,0 +1,44 @@
+{
+  "name": "route53-dynamic-dns",
+  "version": "0.0.1",
+  "description": "Periodically updates a specified A record of a specified hosted zone with host's public IP address",
+  "main": "start.ts",
+  "scripts": {
+    "test": "mocha -r ts-node/register src/**/*.spec.ts",
+    "build": "tsc",
+    "start": "node_modules/.bin/ts-node src/start.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brandon-arnold/route53-dynamic-dns.git"
+  },
+  "keywords": [
+    "route53",
+    "dns",
+    "dynamic-dns"
+  ],
+  "author": "Brandon Arnold",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/brandon-arnold/route53-dynamic-dns/issues"
+  },
+  "homepage": "https://github.com/brandon-arnold/route53-dynamic-dns#readme",
+  "devDependencies": {
+    "@types/chai": "^4.1.4",
+    "@types/isomorphic-fetch": "0.0.34",
+    "@types/lodash": "^4.14.116",
+    "@types/mocha": "^5.2.5",
+    "@types/node": "^10.5.8",
+    "chai": "^4.1.2",
+    "eslint": "^5.3.0",
+    "mocha": "^5.2.0",
+    "standard-version": "^4.4.0",
+    "ts-node": "^7.0.0",
+    "typescript": "^3.0.1"
+  },
+  "dependencies": {
+    "aws-sdk": "^2.291.0",
+    "isomorphic-fetch": "^2.2.1",
+    "lodash": "^4.17.10"
+  }
+}
