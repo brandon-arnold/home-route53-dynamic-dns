@@ -8,7 +8,7 @@ export function isNullOrUndefined(obj: any) {
  * @returns {object} json contained in response
  * @throws
  */
-export async function getJsonFromResponse(fetchResponse: Response) {
+export async function getJsonFromResponse(fetchResponse: any) {
   let status = fetchResponse.status;
   if (status >= 400) {
     throw new Error('Error completing fetch');
@@ -21,3 +21,4 @@ export async function getJsonFromResponse(fetchResponse: Response) {
   }
   return body;
 }
+
