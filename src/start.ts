@@ -2,8 +2,8 @@ import getCurrentIp from './getCurrentIp';
 import isValidIp from './isValidIp';
 import getCachedIp from './getCachedIp';
 import setCachedIp from './setCachedIp';
-// import getARecord from './getARecord';
-// import setARecord from './setARecord';
+import getARecord from './getARecord';
+import setARecord from './setARecord';
 
 async function main() {
   const currentIp = await getCurrentIp();
@@ -12,10 +12,12 @@ async function main() {
   }
   const cachedIp = await getCachedIp();
   if (!isValidIp(cachedIp) || currentIp !== cachedIp) {
-    //   const aRecord = await getARecord();
-    //   if (currentIp !== aRecord) {
-    //     setARecord(currentIp);
-    //   }
+    console.log(`Current IP ${currentIp} does not match cached IP ${cachedIp}`);
+    const aRecord = await getARecord();
+    if (currentIp !== aRecord) {
+      console.log(`Current IP ${currentIp} does not match A record IP ${aRecord}. Updating A record...`);
+      setARecord(currentIp);
+    }
     await setCachedIp(currentIp);
   }
 }

@@ -1,4 +1,6 @@
 import * as fetch from 'isomorphic-fetch';
+import { get } from 'lodash';
+
 import { getJsonFromResponse } from '../helpers';
 
 /**
@@ -20,5 +22,6 @@ export default async function getCurrentIp() {
     console.error(body);
     throw new Error(errorText);
   }
-  return await getJsonFromResponse(fetchResponse);
+  const json = await getJsonFromResponse(fetchResponse);
+  return get(json, 'ip');
 }
